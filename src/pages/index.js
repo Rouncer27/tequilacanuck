@@ -29,41 +29,9 @@ const IndexPage = props => {
         <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
         <Link to="/using-dsg">Go to "Using DSG"</Link>
       </p>
-      <div>
-        {instagram.edges.map((image, index) => {
-          console.log(image)
-          return (
-            <div key={index}>
-              <img
-                src={image.node.thumbnails[0].src}
-                alt={image.node.caption}
-              />
-              <p>{image.node.caption}</p>
-            </div>
-          )
-        })}
-      </div>
+      <div></div>
     </Layout>
   )
 }
-
-export const homeTempQuery = graphql`
-  query homeTempPage {
-    instagram: allInstaNode {
-      edges {
-        node {
-          timestamp
-          caption
-          thumbnails {
-            src
-          }
-          localFile {
-            absolutePath
-          }
-        }
-      }
-    }
-  }
-`
 
 export default IndexPage
